@@ -47,17 +47,69 @@ class LinkedList:
          self.tail = None
       #for test purpose
       return temp.value
-
+   
+   #prepend method
+   def prepend(self,value):
+      new_node = Node(value)
+      if self.length == 0:
+         self.head = new_node
+         self.tail = new_node
+      else:
+         new_node.next = self.head
+         self.head = new_node
+      self.length += 1
+      return True
+   
+   #pop_first method
+   def pop_first(self):
+      if self.length == 0:
+         return None
+      temp = self.head
+      self.head = self.head.next
+      temp.next = None
+      self.length -= 1
+      if self.length == 0:
+         self.tail = None
+      #for test purpose
+      return temp.value
+   
+   #get method
+   def get(self, index):
+      if index < 0 or index >= self.length:
+         return None
+      temp = self.head
+      for _ in range(index):
+         temp = temp.next
+      #for test purpose
+      return temp.value
 
 #---------------------MAIN----------------------#
 
 # Testare la lista collegata
-my_linked_list = LinkedList(1)
+my_linked_list = LinkedList(0)
+my_linked_list.append(1)
 my_linked_list.append(2)
+my_linked_list.append(3)
 
+#my_linked_list.prepend(1)
+#print(my_linked_list.get(2))
+
+my_linked_list.print_list()
+
+'''#test of pop method
 # (2) Items - Returns 2 Node
 print(my_linked_list.pop())
 # (1) Items - Returns 1 Node
 print(my_linked_list.pop())
 # (0) Items - Returns None
-print(my_linked_list.pop())
+print(my_linked_list.pop())'
+'''
+
+'''#test of pop_first method
+# (2) Items - Returns 2 Node
+print(my_linked_list.pop_first())
+# (1) Items - Returns 1 Node
+print(my_linked_list.pop_first())
+# (0) Items - Returns None
+print(my_linked_list.pop_first())'
+'''
