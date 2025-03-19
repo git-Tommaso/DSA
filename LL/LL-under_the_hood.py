@@ -1,3 +1,4 @@
+# Example of how a Linked List works under the hood using a dictionary
 head = {
     "value": 11,
     "next": {
@@ -12,6 +13,6 @@ head = {
     }
 }
 
-#prendo la head, faccio next e mi va nel blocco successivo, poi next e mi va in quello dopo ancora ed infine prendo il valore,
-#quindi va da 11 a 3 e poi 23 (qeuesta non è una LL ma un dictionary, la scruttura è questa però)
-print(head['next']['next']['value']) 
+# Accessing the value of the third node by traversing the dictionary
+# Start at the head, go to the next node, then the next, and finally get the value
+print(head['next']['next']['value'])  # Output: 23

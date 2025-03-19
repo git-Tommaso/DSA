@@ -2,29 +2,21 @@ from LL import LinkedList
 
 # ---------------------MAIN----------------------#
 
-# Test the linked list
+# Create a new Linked List with an initial node (value 0)
 my_linked_list = LinkedList(0)
-my_linked_list.append(1)
-my_linked_list.append(2)
-my_linked_list.append(3)
 
-# Update a value and print the list
-my_linked_list.set_value(1, 4)
-my_linked_list.instert(2,5)
-my_linked_list.remove(3)
-my_linked_list.print_list()
+# Add nodes to the list
+my_linked_list.append(1)  # Add 1 to the end
+my_linked_list.append(2)  # Add 2 to the end
+my_linked_list.append(3)  # Add 3 to the end
+
+# Update a node's value and print the list
+my_linked_list.set_value(1, 4)  # Change the value at index 1 to 4
+my_linked_list.insert(2, 5)  # Insert 5 at index 2
+my_linked_list.remove(3)  # Remove the node at index 3
+my_linked_list.print_list()  # Print the current list
 print()
-my_linked_list.reverse()
-my_linked_list.print_list()
 
-# Uncomment the following sections to test other methods:
-
-# Test the pop method
-# print(my_linked_list.pop())  # (2) Items - Returns 2 Node
-# print(my_linked_list.pop())  # (1) Items - Returns 1 Node
-# print(my_linked_list.pop())  # (0) Items - Returns None
-
-# Test the pop_first method
-# print(my_linked_list.pop_first())  # (2) Items - Returns 2 Node
-# print(my_linked_list.pop_first())  # (1) Items - Returns 1 Node
-# print(my_linked_list.pop_first())  # (0) Items - Returns None
+# Reverse the list and print it
+my_linked_list.reverse()  # Reverse the order of the list
+my_linked_list.print_list()  # Print the reversed list

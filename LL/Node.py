@@ -1,5 +1,8 @@
 class Node:
-    # Constructor
+    """
+    Represents a single node in a Linked List.
+    Each node contains a value and a reference to the next node.
+    """
     def __init__(self, value):
-        self.value = value  # Assign the value to the node
-        self.next = None  # Set the next pointer to None, as there's no next node yet
+        self.value = value  # The value stored in the node
+        self.next = None  # Pointer to the next node (initially None)
