@@ -109,7 +109,33 @@ class LinkedList:
       temp.next = new_node
       self.length += 1
       return True    
-
+    
+    # Remove a node at a specific index
+    def remove(self,index):
+      if self._is_out_of_bounds_(index):
+            return None
+      if index == 0:
+            return self.pop_first()
+      if index == self.length - 1:
+         return self.pop()
+      prev = self.get(index - 1)
+      temp = prev.next
+      prev.next = temp.next
+      temp.next = None
+      self.length -= 1
+      return temp
+    # Reverse the linked list
+    def reverse(self):
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        after = temp.next
+        before = None
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after        
 
 # ---------------------MAIN----------------------#
 
@@ -122,6 +148,10 @@ my_linked_list.append(3)
 # Update a value and print the list
 my_linked_list.set_value(1, 4)
 my_linked_list.instert(2,5)
+my_linked_list.remove(3)
+my_linked_list.print_list()
+print()
+my_linked_list.reverse()
 my_linked_list.print_list()
 
 # Uncomment the following sections to test other methods:
