@@ -6,6 +6,9 @@ class Node:
 
 
 class LinkedList:
+    def _is_out_of_bounds_(self, index):
+        return index < 0 or index >= self.length
+    
     # Constructor
     def __init__(self, value):
         # Create a new node instance and assign it as both head and tail
@@ -76,7 +79,7 @@ class LinkedList:
 
     # Get the value of a node at a specific index
     def get(self, index):
-        if index < 0 or index >= self.length:  # Check for out-of-bounds index
+        if self._is_out_of_bounds_(index):  # Check for out-of-bounds index
             return None
         temp = self.head
         for _ in range(index):  # Traverse to the desired index
@@ -93,7 +96,7 @@ class LinkedList:
     
    # Insert a new node at a specific index
     def instert(self, index ,value):
-      if index < 0 or index >= self.length:
+      if self._is_out_of_bounds_(index):
          return False
       if index == 0:
          return self.prepend(value)
