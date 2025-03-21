@@ -1,125 +1,160 @@
 from Node import Node
 
 class DoublyLinkedList:
-   def __init__(self, value):
-      new_node = Node(value)
-      self.head = new_node
-      self.tail = new_node
-      self.length = 1
-   
-   def print_list(self):
-      temp = self.head
-      while temp:
-         print(temp.value)
-         temp = temp.next
-      
-   def append(self, value):
-      new_node = Node(value)
-      if self.head is None:
-         self.head = new_node
-         self.tail = new_node
-      else:
-         self.tail.next = new_node
-         new_node.prev = self.tail
-         self.tail = new_node
-      self.length += 1
-      return True
-   
-   def pop(self):
-      if self.length == 0:
-         return None
-      temp = self.tail
-      if self.length == 1:
-         self.head = None
-         self.tail = None
-      else:
-         self.tail = temp.prev
-         self.tail.next = None
-         temp.prev = None
-      self.length -= 1
-      return temp
-   
-   def prepend(self, value):
-      new_node = Node(value)
-      if self.length == 0:
-         self.head = new_node
-         self.tail = new_node
-      else:
-         new_node.next = self.head
-         self.head.prev = new_node
-         self.head = new_node
-      self.length += 1
-      return True
-   
-   def pop_first(self):
-      if self.length == 0:
-         return None
-      temp = self.head
-      if self.length == 1:
-         self.head = None
-         self.tail = None
-      else:
-         self.head = self.head.next
-         self.head.prev = None
-         temp.next = None
-      self.length -= 1
-      return temp
+    """
+    Implements a Doubly Linked List data structure.
+    Provides methods to manipulate the list, such as adding, removing, updating, and traversing nodes.
+    """
 
-   def get(self,index):
-      if index < 0 or index >= self.length:
-         return None
-      temp = self.head
-      if index < self.length/2:
-         for _ in range(index):
+    def __init__(self, value):
+        """
+        Initializes the Doubly Linked List with a single node.
+        """
+        new_node = Node(value)
+        self.head = new_node
+        self.tail = new_node
+        self.length = 1
+
+    def print_list(self):
+        """
+        Prints all the values in the Doubly Linked List.
+        """
+        temp = self.head
+        while temp:
+            print(temp.value)
             temp = temp.next
-      else:
-         temp = self.tail
-         for _ in range(self.length - 1, index, -1):
-            temp = temp.prev
-      return temp
-   
-   def set_value(self, index, value):
-      temp = self.get(index)
-      if temp:
-         temp.value = value
-         return True
-      return False
-   
-   def insert(self, index, value):
-      if index < 0 or index >= self.length:
-         return False
-      if index == 0:
-         return self.prepend(value)
-      if index == self.length:
-         return self.append(value)
-      
-      new_node = Node(value)
-      before = self.get(index - 1)
-      after = before.next
 
-      new_node.prev = before
-      new_node.next = after
-      before.next = new_node
-      after.prev = new_node
+    def append(self, value):
+        """
+        Adds a new node with the given value to the end of the list.
+        """
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+        self.length += 1
+        return True
 
-      self.length += 1
-      return True
-   
-   def remove(self, index):
-      if index < 0 or index >= self:
-         return None
-      if index == 0:
-         return self.pop_first()
-      if index == self.length - 1:
-         return self.pop()
-      
-      temp = self.get(index)
+    def pop(self):
+        """
+        Removes the last node from the list and returns it.
+        """
+        if self.length == 0:
+            return None
+        temp = self.tail
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.tail = temp.prev
+            self.tail.next = None
+            temp.prev = None
+        self.length -= 1
+        return temp
 
-      temp.next.prev = temp.prev
-      temp.prev.next = temp.next
+    def prepend(self, value):
+        """
+        Adds a new node with the given value to the beginning of the list.
+        """
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+        self.length += 1
+        return True
 
-      temp.next = None
-      temp.prev = None
+    def pop_first(self):
+        """
+        Removes the first node from the list and returns it.
+        """
+        if self.length == 0:
+            return None
+        temp = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+            temp.next = None
+        self.length -= 1
+        return temp
 
-      self.length -= 1
-      return temp
+    def get(self, index):
+        """
+        Returns the node at the specified index.
+        """
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        if index < self.length / 2:
+            for _ in range(index):
+                temp = temp.next
+        else:
+            temp = self.tail
+            for _ in range(self.length - 1, index, -1):
+                temp = temp.prev
+        return temp
+
+    def set_value(self, index, value):
+        """
+        Updates the value of the node at the specified index.
+        """
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
+    def insert(self, index, value):
+        """
+        Inserts a new node with the given value at the specified index.
+        """
+        if index < 0 or index >= self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+
+        new_node = Node(value)
+        before = self.get(index - 1)
+        after = before.next
+
+        new_node.prev = before
+        new_node.next = after
+        before.next = new_node
+        after.prev = new_node
+
+        self.length += 1
+        return True
+
+    def remove(self, index):
+        """
+        Removes the node at the specified index and returns it.
+        """
+        if index < 0 or index >= self:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length - 1:
+            return self.pop()
+
+        temp = self.get(index)
+
+        temp.next.prev = temp.prev
+        temp.prev.next = temp.next
+
+        temp.next = None
+        temp.prev = None
+
+        self.length -= 1
+        return temp
