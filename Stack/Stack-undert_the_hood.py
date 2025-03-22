@@ -1,4 +1,4 @@
-head = {
+top = {
     "value": 11,
     "next": {
         "value": 3,
