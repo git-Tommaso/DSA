@@ -1,4 +1,4 @@
-from LL import LinkedList
+from LL import LinkedList  # Import the LinkedList class
 
 # ---------------------MAIN----------------------#
 
