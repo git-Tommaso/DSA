@@ -12,3 +12,26 @@ class Queue:
       while temp:
          print(temp.value)
          temp = temp.next
+
+   def Enqueue(self,value):
+      new_node =  Node(value)
+      if self.first is None:
+         self.first = new_node
+         self.last = new_node
+      else:
+         self.last.next = new_node
+         self.last = new_node
+      self.length += 1
+
+   def Dequeue(self):
+      if self.length == 0:
+         return None
+      temp = self.first
+      if self.length == 1:
+         self.last = None
+         self.first = None
+      else:
+         self.first = self.first.next
+         temp.next = None
+      self.length -= 1
+      return temp
