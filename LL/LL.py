@@ -1,4 +1,4 @@
-from Node import Node
+from Node import Node  # Import the Node class to create linked list nodes
 
 class LinkedList:
     """
@@ -34,14 +34,14 @@ class LinkedList:
         """
         Adds a new node with the given value to the end of the list.
         """
-        new_node = Node(value)
+        new_node = Node(value)  # Create a new node
         if self.head is None:  # If the list is empty
-            self.head = new_node
-            self.tail = new_node
+            self.head = new_node  # Set the new node as the head
+            self.tail = new_node  # Set the new node as the tail
         else:
             self.tail.next = new_node  # Link the current tail to the new node
             self.tail = new_node  # Update the tail to the new node
-        self.length += 1
+        self.length += 1  # Increment the length of the list
         return True
 
     def pop(self):
@@ -151,13 +151,13 @@ class LinkedList:
         """
         Reverses the order of the Linked List.
         """
-        temp = self.head
-        self.head = self.tail
-        self.tail = temp
-        after = temp.next
-        before = None
-        for _ in range(self.length):
-            after = temp.next
-            temp.next = before
-            before = temp
-            temp = after
+        temp = self.head  # Start from the head
+        self.head = self.tail  # Swap the head and tail
+        self.tail = temp  # Update the tail to the original head
+        after = temp.next  # Store the next node
+        before = None  # Initialize the previous node as None
+        for _ in range(self.length):  # Traverse the list
+            after = temp.next  # Store the next node
+            temp.next = before  # Reverse the link
+            before = temp  # Move the previous pointer forward
+            temp = after  # Move the current pointer forward

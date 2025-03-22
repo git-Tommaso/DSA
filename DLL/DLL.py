@@ -1,4 +1,4 @@
-from Node import Node
+from Node import Node  # Import the Node class to create doubly linked list nodes
 
 class DoublyLinkedList:
     """
@@ -30,23 +30,16 @@ class DoublyLinkedList:
             temp = temp.next
 
     def append(self, value):
-        """
-        Adds a new node with the given value to the end of the list.
-        """
-        # Create a new node with the given value
-        new_node = Node(value)
-        # If the list is empty, set head and tail to the new node
-        if self.head is None:
-            self.head = new_node
-            self.tail = new_node
+        # Adds a new node with the given value to the end of the list
+        new_node = Node(value)  # Create a new node
+        if self.head is None:  # If the list is empty
+            self.head = new_node  # Set the new node as the head
+            self.tail = new_node  # Set the new node as the tail
         else:
-            # Link the current tail to the new node
-            self.tail.next = new_node
-            new_node.prev = self.tail
-            # Update the tail to the new node
-            self.tail = new_node
-        # Increment the length of the list
-        self.length += 1
+            self.tail.next = new_node  # Link the current tail to the new node
+            new_node.prev = self.tail  # Link the new node to the current tail
+            self.tail = new_node  # Update the tail to the new node
+        self.length += 1  # Increment the length of the list
         return True
 
     def pop(self):
@@ -176,30 +169,18 @@ class DoublyLinkedList:
         return True
 
     def remove(self, index):
-        """
-        Removes the node at the specified index and returns it.
-        """
-        # Return None if the index is out of bounds
-        if index < 0 or index >= self.length:
+        # Removes the node at the specified index and returns it
+        if index < 0 or index >= self.length:  # Check if the index is out of bounds
             return None
-        # If removing the first node, use pop_first
-        if index == 0:
-            return self.pop_first()
-        # If removing the last node, use pop
-        if index == self.length - 1:
-            return self.pop()
+        if index == 0:  # If removing the first node
+            return self.pop_first()  # Use pop_first method
+        if index == self.length - 1:  # If removing the last node
+            return self.pop()  # Use pop method
 
-        # Get the node to be removed
-        temp = self.get(index)
-
-        # Update the links of the neighboring nodes
-        temp.next.prev = temp.prev
-        temp.prev.next = temp.next
-
-        # Disconnect the node to be removed
-        temp.next = None
-        temp.prev = None
-
-        # Decrement the length of the list
-        self.length -= 1
-        return temp
+        temp = self.get(index)  # Get the node to be removed
+        temp.next.prev = temp.prev  # Update the next node's previous pointer
+        temp.prev.next = temp.next  # Update the previous node's next pointer
+        temp.next = None  # Disconnect the next pointer of the removed node
+        temp.prev = None  # Disconnect the previous pointer of the removed node
+        self.length -= 1  # Decrement the length of the list
+        return temp  # Return the removed node
