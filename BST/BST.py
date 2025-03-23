@@ -21,6 +21,7 @@ class BinarySearchTree:
         # Traverse the tree to find the correct position for the new node.
         while True:
             # If the value already exists in the tree, do not insert it.
+            # Binary tree can't contain duplicates
             if new_node.value == temp.value:
                 return False
             
