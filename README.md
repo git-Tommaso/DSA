@@ -10,20 +10,24 @@ Welcome to the "dsa" repository! 🚀 This repository is dedicated to all things
 - [License](#license)
 
 ## Overview
-In this repository, you will find various implementations of data structures and algorithms in different programming languages. Understanding DSA is crucial for any programmer, and this repository is here to assist you in mastering these fundamental concepts. Whether you prefer arrays, linked lists, trees, graphs, or any other data structures, you will find examples and explanations here.
+In this repository, you will find various implementations of data structures and algorithms in python. Understanding DSA is crucial for any programmer, and this repository is here to assist you in mastering these fundamental concepts. Whether you prefer arrays, linked lists, trees, graphs, or any other data structures, you will find examples and explanations here.
 
 ## Getting Started
 To get started with this repository, simply clone or download the contents to your local machine. You can explore the different folders containing implementations in various programming languages. Dive into the code, understand how each data structure works, and see examples of algorithms in action. Practice implementing these yourself to solidify your understanding.
 
 ## Contents
 - **Data Structures**
-  - Arrays
   - Linked Lists
+  - Double Linked List
   - Stacks
   - Queues
   - Trees
+  - Hash Tables
   - Graphs
+  - Heap
+  - ...
 - **Algorithms**
+  - ...
   - Sorting Algorithms
   - Searching Algorithms
   - Recursive Algorithms
