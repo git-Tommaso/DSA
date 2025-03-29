@@ -42,7 +42,7 @@ If you'd like to contribute to this repository, we welcome your input! Feel free
 ## License
 The content of this repository is licensed under the MIT License. You are free to use, modify, and distribute the code as long as you include the original copyright and license notice. For more details, please refer to the [LICENSE](LICENSE) file.
 
-[![Download ZIP](https://img.shields.io/badge/Download%20ZIP-v1.0.0-blue)](https://github.com/cli/cli/archive/refs/tags/v1.0.0.zip)
+[Scarica tutto il codice come ZIP](https://github.com/git-Tommaso/DSA/archive/refs/heads/master.zip)
 
 If you encounter any issues with the download link provided, please check the "Releases" section of this repository for alternative options.
 
@@ -55,5 +55,3 @@ Happy coding! 🖥️📚
 - Ensure your code is well-documented and includes explanations where necessary.
 - Test your code thoroughly before submitting a pull request.
 - By contributing to this repository, you agree to license your work under the MIT License.
-
-*This README is based on a fictional repository. Images and emojis are for illustrative purposes only.*
