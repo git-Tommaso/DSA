@@ -1,44 +1,45 @@
 class HashTable:
-   #if u don't pass any value to the constractor the default size will be 7 
+   # Constructor to initialize the hash table with a default size of 7
    def __init__(self, size = 7):
-      #create a table with size(7) empty(None) spaces 
+      # Create a list with 'size' number of None values
       self.data_map = [None] * size
 
+   # Private method to generate a hash for a given key
    def __hash(self, key):
       my_hash = 0
       for letter in key:
-         #ord = ordinal (aschi number of every letter), *23 because is a prime number
-         #len = lenght (default lenght = 7(prime number))
+         # Calculate hash using ASCII value of letters and a prime multiplier
          my_hash = (my_hash + ord(letter) * 23) % len(self.data_map)
-      #the number will be from 0 to 6 (after all the math)
-      return my_hash
+      return my_hash  # Return the hash index
    
+   # Method to print the entire hash table
    def print_table(self):
       for i, val in enumerate(self.data_map):
-         # i = index, val = value at that index
+         # Print the index and its corresponding value
          print(i, ": ", val)
 
+   # Method to add a key-value pair to the hash table
    def set_item(self, key, value):
-      #by calling the method we will have the auto generated index
-      index = self.__hash(key)
+      index = self.__hash(key)  # Generate hash index for the key
       if self.data_map[index] == None:
-         self.data_map[index]  = []
-      self.data_map[index].append([key, value])
+         self.data_map[index]  = []  # Initialize a list at the index if empty
+      self.data_map[index].append([key, value])  # Append the key-value pair
 
+   # Method to retrieve the value associated with a key
    def get_item(self, key):
-      index = self.__hash(key)
+      index = self.__hash(key)  # Generate hash index for the key
       if self.data_map[index] is not None:
          for i in range(len(self.data_map[index])):
-            '''
-            [index] is the index of the hash_map, [i] is the single dictionary in that index('key', value), and 0 because we are sercing for the key that is at index 0 of the dictionary ('key'[0], value[1])
-            '''
-            if self.data_map[index] [i] [0] == key:
-               return self.data_map[index] [i] [1] #return the value 
-         return None
+            # Check if the key matches and return its value
+            if self.data_map[index][i][0] == key:
+               return self.data_map[index][i][1]
+      return None  # Return None if the key is not found
+
+   # Method to retrieve all keys in the hash table
    def keys(self):
       all_keys = []
       for i in range(len(self.data_map)):
          if self.data_map[i] is not None:
             for j in range(len(self.data_map[i])):
-               all_keys.append(self.data_map[i][j][0])
+               all_keys.append(self.data_map[i][j][0])  # Append each key
       return all_keys

@@ -1,17 +1,23 @@
-from Graph import Graph
+from Graph import Graph  # Import the Graph class
 
+# Create a new graph
 my_graph = Graph()
 
-my_graph.add_vertex('A')
-my_graph.add_vertex('B')
-my_graph.add_vertex('C')
-my_graph.add_vertex('D')
+# Add vertices to the graph
+my_graph.add_vertex('A')  # Add vertex A
+my_graph.add_vertex('B')  # Add vertex B
+my_graph.add_vertex('C')  # Add vertex C
+my_graph.add_vertex('D')  # Add vertex D
 
-my_graph.add_edge('A', 'B')
-my_graph.add_edge('A', 'C')
-my_graph.add_edge('A', 'D') 
-my_graph.add_edge('B', 'D') 
-my_graph.add_edge('C', 'D')
+# Add edges between vertices
+my_graph.add_edge('A', 'B')  # Connect A and B
+my_graph.add_edge('A', 'C')  # Connect A and C
+my_graph.add_edge('A', 'D')  # Connect A and D
+my_graph.add_edge('B', 'D')  # Connect B and D
+my_graph.add_edge('C', 'D')  # Connect C and D
 
-my_graph.remove_vertex('D')
-my_graph.print_graph()
+# Remove a vertex and its edges
+my_graph.remove_vertex('D')  # Remove vertex D and its connections
+
+# Print the graph
+my_graph.print_graph()  # Output the adjacency list
