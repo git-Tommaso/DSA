@@ -25,6 +25,7 @@ To get started with this repository, simply clone or download the contents to yo
   - Hash Tables
   - Graphs
   - Heap
+  - Recursion
   - ...
 - **Algorithms**
   - ...
