@@ -23,3 +23,17 @@ print(myheap.heap)
    [100, 99, 75, 58, 72, 61]
 
 """
+
+print()
+
+myheap.remove()
+print(myheap.heap)
+myheap.remove()
+print(myheap.heap)
+
+"""
+   EXPECTED OUTPUT:
+   ----------------------
+   [99, 72, 75, 58, 61]
+   [75, 72, 61, 58]
+"""
