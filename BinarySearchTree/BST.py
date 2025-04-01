@@ -93,3 +93,27 @@ class BinarySearchTree:
 
         traverse(self.root) 
         return result
+    #Post-order
+    def dfs_post_order(self):
+        result = []
+        def traverse(current_node):
+            if current_node.left:
+                traverse(current_node.left)
+            if current_node.right:
+                traverse(current_node.right)
+            result.append(current_node.value)
+
+        traverse(self.root) 
+        return result
+    #In-order
+    def dfs_in_order(self):
+        result = []
+        def traverse(current_node):
+            if current_node.left:
+                traverse(current_node.left)
+            result.append(current_node.value)
+            if current_node.right:
+                traverse(current_node.right)
+
+        traverse(self.root) 
+        return result

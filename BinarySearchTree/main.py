@@ -38,3 +38,7 @@ your_tree.insert(82)
 print(your_tree.BFS())  # Output: [47, 21, 76, 18, 27, 52, 82]
 
 print(your_tree.dfs_pre_order())  # Output: [47, 21, 18, 27, 76, 52, 82]
+
+print(your_tree.dfs_post_order())  # Output: [18, 21, 27, 47, 52, 76, 82]
+
+print(your_tree.dfs_in_order())  # Output: [18, 21, 27, 47, 52, 76, 82]
