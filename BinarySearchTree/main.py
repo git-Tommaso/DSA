@@ -22,3 +22,19 @@ print(my_tree.root.right.value)  # Output: 76 (right child of root).
 # Checking if the tree contains specific values.
 print(my_tree.contains(27))  # Output: True (value 27 is present in the tree).
 print(my_tree.contains(17))  # Output: False (value 17 is not present in the tree).
+
+#example of breadth first search
+
+your_tree = BinarySearchTree()
+
+your_tree.insert(47)
+your_tree.insert(21)
+your_tree.insert(76)
+your_tree.insert(18)
+your_tree.insert(27)
+your_tree.insert(52)
+your_tree.insert(82)
+
+print(your_tree.BFS())  # Output: [47, 21, 76, 18, 27, 52, 82]
+
+print(your_tree.dfs_pre_order())  # Output: [47, 21, 18, 27, 76, 52, 82]

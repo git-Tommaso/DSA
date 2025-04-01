@@ -62,3 +62,34 @@ class BinarySearchTree:
         
         # If traversal ends and the value is not found, return False.
         return False
+    
+
+    #Traversal Tree
+    #breadth first search
+    def BFS(self):
+        current_node = self.root
+        queue = []
+        result = []
+        queue.append(current_node)
+
+        while len(queue) > 0:
+            current_node = queue.pop(0)
+            result.append(current_node.value)
+            if current_node.left:
+                queue.append(current_node.left)
+            if current_node.right:
+                queue.append(current_node.right)
+        return result
+    #depth first search:
+    #pre-order
+    def dfs_pre_order(self):
+        result = []
+        def traverse(current_node):
+            result.append(current_node.value)
+            if current_node.left:
+                traverse(current_node.left)
+            if current_node.right:
+                traverse(current_node.right)
+
+        traverse(self.root) 
+        return result
