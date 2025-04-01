@@ -26,6 +26,7 @@ To get started with this repository, simply clone or download the contents to yo
   - Graphs
   - Heap
   - Recursion
+  - Tree Traversal
   - ...
 - **Algorithms**
   - ...
