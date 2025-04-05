@@ -27,10 +27,11 @@ To get started with this repository, simply clone or download the contents to yo
   - Heap
   - Recursion
   - Tree Traversal
-  - ...
 - **Algorithms**
-  - ...
-  - Sorting Algorithms
+  - Basic Sorting Algorithms:
+    - Bubble Sort
+    - Selection Sort
+    - Insertion Sort
   - Searching Algorithms
   - Recursive Algorithms
   - Dynamic Programming
