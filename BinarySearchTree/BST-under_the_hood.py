@@ -8,14 +8,14 @@ root = {
 #every element can spit into two elements (Binary tree),
 #but they can olso point to unlimited number of elements (Tree)
 
-ROOT = { #<=PARENT
+ROOT = { #<==PARENT
    "value": 4,
-   "left": { #<=CHILD (they share the same parent, so they are siblings)
+   "left": { #<==CHILD (they share the same parent, so they are siblings)
       "value": 3,
       "left": None, #<==LEAF (the bottom elements are called leaves)
       "right": None #<==LEAF
    },
-   "right": { #<=CHILD
+   "right": { #<==CHILD
       "value": 23,
       "left": None, #<==LEAF
       "right": None #<==LEAF
