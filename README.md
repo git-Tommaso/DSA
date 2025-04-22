@@ -58,7 +58,7 @@ python bubble_sort.py
 ## Repository Structure
 Here's the complete hierarchy of the repository:
 
-
+```
 DSA/
 ├── [BinarySearchTree/](#binarysearchtree)
 │   ├── bst_operations.py
@@ -111,7 +111,7 @@ DSA/
 │   └── README.md
 ├── README.md
 └── LICENSE
-
+```
 
 ### <a name="binarysearchtree"></a>BinarySearchTree/
 A binary search tree (BST) is a hierarchical data structure where each node has at most two children. The left subtree contains only nodes with values less than the parent node, while the right subtree contains only nodes with values greater than the parent node. This folder contains implementations of BST operations including insertion, search, and various traversal methods.
