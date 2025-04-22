@@ -55,46 +55,95 @@ cd SortingAlgorithms
 python bubble_sort.py
 ```
 
-### Installing Dependencies
-Most of the implementations in this repository use only Python's standard library, so no additional dependencies are required. However, if you want to run tests or use visualization tools, you might need to install some packages:
+## Repository Structure
+Here's the complete hierarchy of the repository:
 
-```bash
-pip install -r requirements.txt
+```
+DSA/
+├── [BinarySearchTree/](#binarysearchtree)
+│   ├── bst_operations.py
+│   ├── traversal_methods.py
+│   └── README.md
+├── [Graph/](#graph)
+│   ├── dfs.py
+│   ├── bfs.py
+│   ├── dijkstra.py
+│   └── README.md
+├── [HashTable/](#hashtable)
+│   ├── chaining.py
+│   ├── open_addressing.py
+│   └── README.md
+├── [Heap/](#heap)
+│   ├── min_heap.py
+│   ├── max_heap.py
+│   ├── heap_sort.py
+│   └── README.md
+├── [LinkedList/](#linkedlist)
+│   ├── singly_linked_list.py
+│   ├── operations.py
+│   └── README.md
+├── [DoubleLinkedList/](#doublelinkedlist)
+│   ├── doubly_linked_list.py
+│   ├── operations.py
+│   └── README.md
+├── [Queue/](#queue)
+│   ├── array_queue.py
+│   ├── linked_list_queue.py
+│   └── README.md
+├── [Stack/](#stack)
+│   ├── array_stack.py
+│   ├── linked_list_stack.py
+│   └── README.md
+├── [SortingAlgorithms/](#sortingalgorithms)
+│   ├── bubble_sort.py
+│   ├── selection_sort.py
+│   ├── insertion_sort.py
+│   ├── merge_sort.py
+│   ├── quick_sort.py
+│   └── README.md
+├── [Recursion/](#recursion)
+│   ├── factorial.py
+│   ├── fibonacci.py
+│   ├── tree_traversal.py
+│   └── README.md
+├── [Memorization/](#memorization)
+│   ├── dynamic_programming.py
+│   └── README.md
+├── README.md
+└── LICENSE
 ```
 
-## Repository Structure
-
-### BinarySearchTree/
+### <a name="binarysearchtree"></a>BinarySearchTree/
 A binary search tree (BST) is a hierarchical data structure where each node has at most two children. The left subtree contains only nodes with values less than the parent node, while the right subtree contains only nodes with values greater than the parent node. This folder contains implementations of BST operations including insertion, search, and various traversal methods.
 
-### Graph/
+### <a name="graph"></a>Graph/
 Graphs are non-linear data structures consisting of nodes (vertices) connected by edges. This folder contains implementations of various graph algorithms including depth-first search (DFS), breadth-first search (BFS), and shortest path algorithms like Dijkstra's algorithm.
 
-### HashTable/
+### <a name="hashtable"></a>HashTable/
 Hash tables are data structures that implement an associative array abstract data type, mapping keys to values. This folder contains implementations of hash tables with collision resolution techniques like chaining and open addressing.
 
-### Heap/
+### <a name="heap"></a>Heap/
 A heap is a specialized tree-based data structure that satisfies the heap property. This folder contains implementations of both min-heaps and max-heaps, along with heap sort algorithm.
 
-### LinkedList/
+### <a name="linkedlist"></a>LinkedList/
 Linked lists are linear data structures where elements are stored in nodes, and each node points to the next node in the sequence. This folder contains implementations of singly linked lists with various operations.
 
-### DoubleLinkedList/
+### <a name="doublelinkedlist"></a>DoubleLinkedList/
 Double linked lists are similar to linked lists but each node contains references to both the next and previous nodes. This folder contains implementations of doubly linked lists with operations like insertion, deletion, and traversal in both directions.
 
-### Queue/
+### <a name="queue"></a>Queue/
 A queue is a linear data structure that follows the First-In-First-Out (FIFO) principle. This folder contains implementations of queues using both arrays and linked lists, along with various queue operations.
 
-### Stack/
+### <a name="stack"></a>Stack/
 A stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle. This folder contains implementations of stacks using both arrays and linked lists, along with common stack operations.
 
-### SortingAlgorithms/
+### <a name="sortingalgorithms"></a>SortingAlgorithms/
 This folder contains implementations of various sorting algorithms including bubble sort, selection sort, insertion sort, merge sort, and quick sort. Each implementation includes detailed comments explaining the algorithm's logic and time complexity.
 
-### Recursion/
+### <a name="recursion"></a>Recursion/
 Recursion is a programming technique where a function calls itself to solve a problem. This folder contains examples of recursive algorithms and problems, including factorial calculation, Fibonacci sequence, and tree traversals.
 
-### Memorization/
+### <a name="memorization"></a>Memorization/
 Memoization is an optimization technique used to speed up programs by storing the results of expensive function calls. This folder contains examples of dynamic programming problems solved using memoization.
 
 ## Contributing
