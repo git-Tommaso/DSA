@@ -1,32 +1,39 @@
-from BST import BinarySearchTree  # Importing the BinarySearchTree class from the BST module.
+"""
+Binary Search Tree (BST) Demonstration
+This file demonstrates various operations and traversal methods on a BST.
+It shows how to create a BST, insert values, search for values, and perform different types of traversals.
+"""
 
-# Creating an instance of the BinarySearchTree class.
+from BST import BinarySearchTree  # Import the BinarySearchTree class implementation
+
+# Create a new empty BST
 my_tree = BinarySearchTree()
 
-# Inserting values into the binary search tree.
-my_tree.insert(47)  # Insert the value 47 as the root of the tree (if the tree is empty).
-my_tree.insert(21)  # Insert the value 21 into the left subtree of the root (since 21 < 47).
-my_tree.insert(76)  # Insert the value 76 into the right subtree of the root (since 76 > 47).
-my_tree.insert(18)  # Insert the value 18 into the left subtree of node 21 (since 18 < 21).
-my_tree.insert(27)  # Insert the value 27 into the right subtree of node 21 (since 27 > 21).
-my_tree.insert(52)  # Insert the value 52 into the left subtree of node 76 (since 52 < 76).
-my_tree.insert(82)  # Insert the value 82 into the right subtree of node 76 (since 82 > 76).
+# Insert values into the BST
+# The values are inserted in a way that maintains the BST property:
+# - Left child values are less than parent
+# - Right child values are greater than parent
+my_tree.insert(47)  # Root node
+my_tree.insert(21)  # Left child of root (21 < 47)
+my_tree.insert(76)  # Right child of root (76 > 47)
+my_tree.insert(18)  # Left child of 21 (18 < 21)
+my_tree.insert(27)  # Right child of 21 (27 > 21)
+my_tree.insert(52)  # Left child of 76 (52 < 76)
+my_tree.insert(82)  # Right child of 76 (82 > 76)
 
-# Printing the value of the root node.
-print(my_tree.root.value)  # Output: 47 (root value).
+# Access and print node values
+print(my_tree.root.value)        # Print root value (47)
+print(my_tree.root.left.value)   # Print left child of root (21)
+print(my_tree.root.right.value)  # Print right child of root (76)
 
-# Printing the values of the left and right children of the root node.
-print(my_tree.root.left.value)  # Output: 21 (left child of root).
-print(my_tree.root.right.value)  # Output: 76 (right child of root).
+# Search for values in the BST
+print(my_tree.contains(27))  # True: 27 exists in the tree
+print(my_tree.contains(17))  # False: 17 doesn't exist in the tree
 
-# Checking if the tree contains specific values.
-print(my_tree.contains(27))  # Output: True (value 27 is present in the tree).
-print(my_tree.contains(17))  # Output: False (value 17 is not present in the tree).
-
-#example of breadth first search
-
+# Create another BST to demonstrate different traversal methods
 your_tree = BinarySearchTree()
 
+# Insert the same values to create an identical tree structure
 your_tree.insert(47)
 your_tree.insert(21)
 your_tree.insert(76)
@@ -35,10 +42,36 @@ your_tree.insert(27)
 your_tree.insert(52)
 your_tree.insert(82)
 
-print(your_tree.BFS())  # Output: [47, 21, 76, 18, 27, 52, 82]
+"""
+Traversal Methods Demonstration:
 
-print(your_tree.dfs_pre_order())  # Output: [47, 21, 18, 27, 76, 52, 82]
+1. Breadth First Search (BFS):
+   - Visits nodes level by level
+   - Uses a queue to keep track of nodes to visit
+   - Output: [47, 21, 76, 18, 27, 52, 82]
+"""
+print(your_tree.BFS())
 
-print(your_tree.dfs_post_order())  # Output: [18, 21, 27, 47, 52, 76, 82]
+"""
+2. Depth First Search - Pre-order:
+   - Visits nodes in order: Root -> Left -> Right
+   - Useful for creating a copy of the tree
+   - Output: [47, 21, 18, 27, 76, 52, 82]
+"""
+print(your_tree.dfs_pre_order())
 
-print(your_tree.dfs_in_order())  # Output: [18, 21, 27, 47, 52, 76, 82]
+"""
+3. Depth First Search - Post-order:
+   - Visits nodes in order: Left -> Right -> Root
+   - Useful for deleting the tree
+   - Output: [18, 27, 21, 52, 82, 76, 47]
+"""
+print(your_tree.dfs_post_order())
+
+"""
+4. Depth First Search - In-order:
+   - Visits nodes in order: Left -> Root -> Right
+   - Returns values in sorted order for BST
+   - Output: [18, 21, 27, 47, 52, 76, 82]
+"""
+print(your_tree.dfs_in_order())

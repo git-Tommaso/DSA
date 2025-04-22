@@ -2,19 +2,45 @@ from Node import Node  # Import the Node class to create linked list nodes
 
 class LinkedList:
     """
-    Implements a Linked List data structure.
+    Implements a Singly Linked List data structure.
     Provides methods to manipulate the list, such as adding, removing, updating, and reversing nodes.
+    
+    Attributes:
+        head: Reference to the first node in the list
+        tail: Reference to the last node in the list
+        length: Number of nodes in the list
+        
+    Time Complexities:
+        - Append: O(1)
+        - Prepend: O(1)
+        - Pop: O(n)
+        - Pop First: O(1)
+        - Get: O(n)
+        - Set: O(n)
+        - Insert: O(n)
+        - Remove: O(n)
+        - Reverse: O(n)
+    Space Complexity:
+        - O(n) where n is the number of nodes
     """
 
     def _is_out_of_bounds_(self, index):
         """
-        Checks if the given index is out of the valid range of the list.
+        Helper method to check if an index is valid.
+        
+        Args:
+            index (int): The index to check
+        Returns:
+            bool: True if index is out of bounds, False otherwise
         """
         return index < 0 or index >= self.length
 
     def __init__(self, value):
         """
         Initializes the Linked List with a single node.
+        
+        Args:
+            value: The value to store in the first node
         """
         new_node = Node(value)  # Create a new node
         self.head = new_node  # Set the new node as the head
@@ -24,6 +50,7 @@ class LinkedList:
     def print_list(self):
         """
         Prints all the values in the Linked List.
+        Time Complexity: O(n)
         """
         temp = self.head  # Start from the head
         while temp is not None:  # Traverse the list until the end
@@ -33,6 +60,12 @@ class LinkedList:
     def append(self, value):
         """
         Adds a new node with the given value to the end of the list.
+        
+        Args:
+            value: The value to append
+        Returns:
+            bool: True if successful
+        Time Complexity: O(1)
         """
         new_node = Node(value)  # Create a new node
         if self.head is None:  # If the list is empty
@@ -47,6 +80,10 @@ class LinkedList:
     def pop(self):
         """
         Removes the last node from the list and returns its value.
+        
+        Returns:
+            The value of the removed node, or None if the list is empty
+        Time Complexity: O(n)
         """
         if self.length == 0:  # If the list is empty
             return None
@@ -66,6 +103,12 @@ class LinkedList:
     def prepend(self, value):
         """
         Adds a new node with the given value to the beginning of the list.
+        
+        Args:
+            value: The value to prepend
+        Returns:
+            bool: True if successful
+        Time Complexity: O(1)
         """
         new_node = Node(value)
         if self.length == 0:  # If the list is empty
@@ -80,6 +123,10 @@ class LinkedList:
     def pop_first(self):
         """
         Removes the first node from the list and returns its value.
+        
+        Returns:
+            The value of the removed node, or None if the list is empty
+        Time Complexity: O(1)
         """
         if self.length == 0:  # If the list is empty
             return None
@@ -94,6 +141,12 @@ class LinkedList:
     def get(self, index):
         """
         Returns the node at the specified index.
+        
+        Args:
+            index (int): The index of the node to retrieve
+        Returns:
+            Node: The node at the specified index, or None if index is invalid
+        Time Complexity: O(n)
         """
         if self._is_out_of_bounds_(index):  # Check if the index is valid
             return None
@@ -105,6 +158,13 @@ class LinkedList:
     def set_value(self, index, value):
         """
         Updates the value of the node at the specified index.
+        
+        Args:
+            index (int): The index of the node to update
+            value: The new value to set
+        Returns:
+            bool: True if successful, False if index is invalid
+        Time Complexity: O(n)
         """
         temp = self.get(index)  # Get the node at the index
         if temp:  # If the node exists
@@ -115,6 +175,13 @@ class LinkedList:
     def insert(self, index, value):
         """
         Inserts a new node with the given value at the specified index.
+        
+        Args:
+            index (int): The position to insert the new node
+            value: The value to insert
+        Returns:
+            bool: True if successful, False if index is invalid
+        Time Complexity: O(n)
         """
         if self._is_out_of_bounds_(index):
             return False
@@ -133,6 +200,12 @@ class LinkedList:
     def remove(self, index):
         """
         Removes the node at the specified index and returns it.
+        
+        Args:
+            index (int): The index of the node to remove
+        Returns:
+            Node: The removed node, or None if index is invalid
+        Time Complexity: O(n)
         """
         if self._is_out_of_bounds_(index):
             return None
@@ -150,6 +223,9 @@ class LinkedList:
     def reverse(self):
         """
         Reverses the order of the Linked List.
+        
+        Time Complexity: O(n)
+        Space Complexity: O(1)
         """
         temp = self.head  # Start from the head
         self.head = self.tail  # Swap the head and tail

@@ -20,3 +20,17 @@ print()
 # Reverse the list and print it
 my_linked_list.reverse()  # Reverse the order of the list
 my_linked_list.print_list()  # Print the reversed list
+
+"""
+This program demonstrates the basic operations of a Linked List:
+1. Creating a new list with an initial value
+2. Appending values to the end
+3. Updating values at specific indices
+4. Inserting values at specific positions
+5. Removing values from specific positions
+6. Reversing the entire list
+
+The operations showcase the flexibility and dynamic nature of linked lists,
+where nodes can be easily added, removed, and modified without requiring
+contiguous memory allocation.
+"""

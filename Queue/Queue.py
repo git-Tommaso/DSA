@@ -1,41 +1,81 @@
 from Node import Node  # Import the Node class to create queue nodes
 
 class Queue:
-   def __init__(self, value):
-      # Initialize the queue with a single node
-      new_node = Node(value)  # Create a new node with the given value
-      self.first = new_node  # Set the first node of the queue
-      self.last = new_node  # Set the last node of the queue
-      self.length = 1  # Initialize the length of the queue to 1
+    """
+    Implements a Queue data structure using a linked list.
+    A Queue follows the First-In-First-Out (FIFO) principle where:
+    - Elements are added (enqueued) at the rear (last)
+    - Elements are removed (dequeued) from the front (first)
+    """
+    
+    def __init__(self, value):
+        """
+        Initializes the Queue with a single node.
+        Args:
+            value: The value to be stored in the first node
+        """
+        # Create a new node with the given value
+        new_node = Node(value)
+        # Set both first and last to the new node since it's the only node
+        self.first = new_node
+        self.last = new_node
+        # Initialize the length of the queue to 1
+        self.length = 1
 
-   def print_queue(self):
-      # Print all the values in the queue
-      temp = self.first  # Start from the first node
-      while temp:  # Traverse until the end of the queue
-         print(temp.value)  # Print the value of the current node
-         temp = temp.next  # Move to the next node
+    def print_queue(self):
+        """
+        Prints all the values in the queue from first to last.
+        Time Complexity: O(n) where n is the number of nodes
+        """
+        # Start from the first node
+        temp = self.first
+        # Traverse the queue and print each node's value
+        while temp:
+            print(temp.value)
+            temp = temp.next
 
-   def Enqueue(self, value):
-      # Add a new node with the given value to the end of the queue
-      new_node = Node(value)  # Create a new node
-      if self.first is None:  # If the queue is empty
-         self.first = new_node  # Set the new node as the first
-         self.last = new_node  # Set the new node as the last
-      else:
-         self.last.next = new_node  # Link the current last node to the new node
-         self.last = new_node  # Update the last node to the new node
-      self.length += 1  # Increment the length of the queue
+    def Enqueue(self, value):
+        """
+        Adds a new node with the given value to the end of the queue.
+        Args:
+            value: The value to be added
+        Time Complexity: O(1)
+        """
+        # Create a new node with the given value
+        new_node = Node(value)
+        # If the queue is empty, set both first and last to the new node
+        if self.first is None:
+            self.first = new_node
+            self.last = new_node
+        else:
+            # Link the current last node to the new node
+            self.last.next = new_node
+            # Update the last node to the new node
+            self.last = new_node
+        # Increment the length of the queue
+        self.length += 1
 
-   def Dequeue(self):
-      # Remove and return the first node of the queue
-      if self.length == 0:  # If the queue is empty
-         return None  # Return None
-      temp = self.first  # Store the current first node
-      if self.length == 1:  # If the queue has only one node
-         self.last = None  # Set the last node to None
-         self.first = None  # Set the first node to None
-      else:
-         self.first = self.first.next  # Update the first node to the next node
-         temp.next = None  # Disconnect the removed node
-      self.length -= 1  # Decrement the length of the queue
-      return temp  # Return the removed node
+    def Dequeue(self):
+        """
+        Removes and returns the first node from the queue.
+        Returns:
+            Node: The removed node, or None if the queue is empty
+        Time Complexity: O(1)
+        """
+        # If the queue is empty, return None
+        if self.length == 0:
+            return None
+        # Store the current first node
+        temp = self.first
+        # If the queue has only one node, reset first and last to None
+        if self.length == 1:
+            self.last = None
+            self.first = None
+        else:
+            # Update the first node to the next node
+            self.first = self.first.next
+            # Disconnect the removed node from the queue
+            temp.next = None
+        # Decrement the length of the queue
+        self.length -= 1
+        return temp

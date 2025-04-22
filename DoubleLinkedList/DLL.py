@@ -3,16 +3,22 @@ from Node import Node  # Import the Node class to create doubly linked list node
 class DoublyLinkedList:
     """
     Implements a Doubly Linked List data structure.
-    Provides methods to manipulate the list, such as adding, removing, updating, and traversing nodes.
+    A doubly linked list is a linear data structure where each element (node) contains:
+    - A value
+    - A pointer to the next node
+    - A pointer to the previous node
+    This allows for efficient traversal in both directions.
     """
 
     def __init__(self, value):
         """
         Initializes the Doubly Linked List with a single node.
+        Args:
+            value: The value to be stored in the first node
         """
         # Create a new node with the given value
         new_node = Node(value)
-        # Set the head and tail to the new node
+        # Set both head and tail to the new node since it's the only node
         self.head = new_node
         self.tail = new_node
         # Initialize the length of the list to 1
@@ -20,7 +26,8 @@ class DoublyLinkedList:
 
     def print_list(self):
         """
-        Prints all the values in the Doubly Linked List.
+        Prints all the values in the Doubly Linked List from head to tail.
+        Time Complexity: O(n) where n is the number of nodes
         """
         # Start from the head of the list
         temp = self.head
@@ -30,21 +37,37 @@ class DoublyLinkedList:
             temp = temp.next
 
     def append(self, value):
-        # Adds a new node with the given value to the end of the list
-        new_node = Node(value)  # Create a new node
-        if self.head is None:  # If the list is empty
-            self.head = new_node  # Set the new node as the head
-            self.tail = new_node  # Set the new node as the tail
+        """
+        Adds a new node with the given value to the end of the list.
+        Args:
+            value: The value to be added
+        Returns:
+            bool: True if the operation was successful
+        Time Complexity: O(1)
+        """
+        # Create a new node with the given value
+        new_node = Node(value)
+        # If the list is empty, set both head and tail to the new node
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
         else:
-            self.tail.next = new_node  # Link the current tail to the new node
-            new_node.prev = self.tail  # Link the new node to the current tail
-            self.tail = new_node  # Update the tail to the new node
-        self.length += 1  # Increment the length of the list
+            # Link the current tail to the new node
+            self.tail.next = new_node
+            # Link the new node back to the current tail
+            new_node.prev = self.tail
+            # Update the tail to the new node
+            self.tail = new_node
+        # Increment the length of the list
+        self.length += 1
         return True
 
     def pop(self):
         """
-        Removes the last node from the list and returns it.
+        Removes and returns the last node from the list.
+        Returns:
+            Node: The removed node, or None if the list is empty
+        Time Complexity: O(1)
         """
         # If the list is empty, return None
         if self.length == 0:
@@ -58,7 +81,9 @@ class DoublyLinkedList:
         else:
             # Update the tail to the previous node
             self.tail = temp.prev
+            # Remove the link from the new tail to the removed node
             self.tail.next = None
+            # Remove the link from the removed node to the new tail
             temp.prev = None
         # Decrement the length of the list
         self.length -= 1
@@ -67,16 +92,22 @@ class DoublyLinkedList:
     def prepend(self, value):
         """
         Adds a new node with the given value to the beginning of the list.
+        Args:
+            value: The value to be added
+        Returns:
+            bool: True if the operation was successful
+        Time Complexity: O(1)
         """
         # Create a new node with the given value
         new_node = Node(value)
-        # If the list is empty, set head and tail to the new node
+        # If the list is empty, set both head and tail to the new node
         if self.length == 0:
             self.head = new_node
             self.tail = new_node
         else:
             # Link the new node to the current head
             new_node.next = self.head
+            # Link the current head back to the new node
             self.head.prev = new_node
             # Update the head to the new node
             self.head = new_node
@@ -86,7 +117,10 @@ class DoublyLinkedList:
 
     def pop_first(self):
         """
-        Removes the first node from the list and returns it.
+        Removes and returns the first node from the list.
+        Returns:
+            Node: The removed node, or None if the list is empty
+        Time Complexity: O(1)
         """
         # If the list is empty, return None
         if self.length == 0:
@@ -100,7 +134,9 @@ class DoublyLinkedList:
         else:
             # Update the head to the next node
             self.head = self.head.next
+            # Remove the link from the new head to the removed node
             self.head.prev = None
+            # Remove the link from the removed node to the new head
             temp.next = None
         # Decrement the length of the list
         self.length -= 1
@@ -109,11 +145,16 @@ class DoublyLinkedList:
     def get(self, index):
         """
         Returns the node at the specified index.
+        Args:
+            index: The position of the node to retrieve (0-based)
+        Returns:
+            Node: The node at the specified index, or None if index is out of bounds
+        Time Complexity: O(n), but optimized to O(n/2) by choosing the closer end
         """
         # Return None if the index is out of bounds
         if index < 0 or index >= self.length:
             return None
-        # Decide whether to traverse from the head or tail
+        # Decide whether to traverse from the head or tail based on index position
         temp = self.head
         if index < self.length / 2:
             # Traverse from the head for indices in the first half
@@ -129,6 +170,12 @@ class DoublyLinkedList:
     def set_value(self, index, value):
         """
         Updates the value of the node at the specified index.
+        Args:
+            index: The position of the node to update (0-based)
+            value: The new value to set
+        Returns:
+            bool: True if the update was successful, False otherwise
+        Time Complexity: O(n)
         """
         # Get the node at the specified index
         temp = self.get(index)
@@ -141,6 +188,12 @@ class DoublyLinkedList:
     def insert(self, index, value):
         """
         Inserts a new node with the given value at the specified index.
+        Args:
+            index: The position where the new node should be inserted (0-based)
+            value: The value to be inserted
+        Returns:
+            bool: True if the insertion was successful, False otherwise
+        Time Complexity: O(n)
         """
         # Return False if the index is out of bounds
         if index < 0 or index > self.length:
@@ -169,18 +222,33 @@ class DoublyLinkedList:
         return True
 
     def remove(self, index):
-        # Removes the node at the specified index and returns it
-        if index < 0 or index >= self.length:  # Check if the index is out of bounds
+        """
+        Removes the node at the specified index and returns it.
+        Args:
+            index: The position of the node to remove (0-based)
+        Returns:
+            Node: The removed node, or None if the index is out of bounds
+        Time Complexity: O(n)
+        """
+        # Check if the index is out of bounds
+        if index < 0 or index >= self.length:
             return None
-        if index == 0:  # If removing the first node
-            return self.pop_first()  # Use pop_first method
-        if index == self.length - 1:  # If removing the last node
-            return self.pop()  # Use pop method
+        # If removing the first node, use pop_first
+        if index == 0:
+            return self.pop_first()
+        # If removing the last node, use pop
+        if index == self.length - 1:
+            return self.pop()
 
-        temp = self.get(index)  # Get the node to be removed
-        temp.next.prev = temp.prev  # Update the next node's previous pointer
-        temp.prev.next = temp.next  # Update the previous node's next pointer
-        temp.next = None  # Disconnect the next pointer of the removed node
-        temp.prev = None  # Disconnect the previous pointer of the removed node
-        self.length -= 1  # Decrement the length of the list
-        return temp  # Return the removed node
+        # Get the node to be removed
+        temp = self.get(index)
+        # Update the next node's previous pointer
+        temp.next.prev = temp.prev
+        # Update the previous node's next pointer
+        temp.prev.next = temp.next
+        # Disconnect the removed node's pointers
+        temp.next = None
+        temp.prev = None
+        # Decrement the length of the list
+        self.length -= 1
+        return temp

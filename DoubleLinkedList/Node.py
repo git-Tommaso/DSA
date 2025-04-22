@@ -2,8 +2,12 @@ class Node:
     """
     Represents a single node in a Doubly Linked List.
     Each node contains a value, a reference to the next node, and a reference to the previous node.
+    This bidirectional linking allows for traversal in both directions.
     """
     def __init__(self, value):
-        self.value = value  # The value stored in the node
-        self.next = None  # Pointer to the next node (initially None)
-        self.prev = None  # Pointer to the previous node (initially None)
+        # The value/data stored in this node
+        self.value = value
+        # Pointer to the next node in the list (None if this is the last node)
+        self.next = None
+        # Pointer to the previous node in the list (None if this is the first node)
+        self.prev = None

@@ -2,7 +2,10 @@ class Node:
     """
     A class representing a single node in a linked list.
     Each node contains a value and a pointer to the next node.
+    This is the basic building block for the linked list implementation of a stack.
     """
     def __init__(self, value):
-        self.value = value  # The value stored in the node
-        self.next = None  # Pointer to the next node (initially None)
+        # The value/data stored in this node
+        self.value = value
+        # Pointer to the next node in the stack (None if this is the top node)
+        self.next = None
