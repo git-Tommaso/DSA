@@ -146,6 +146,26 @@ Recursion is a programming technique where a function calls itself to solve a pr
 ### <a name="memorization"></a>Memorization/
 Memoization is an optimization technique used to speed up programs by storing the results of expensive function calls. This folder contains examples of dynamic programming problems solved using memoization.
 
+## Recommended Set-Up
+
+While learning and practicing Data Structures and Algorithms, I recommend using the following setup to maximize your productivity and learning experience:
+
+![Recommended IDE Setup](Recomended_Set-up/immagine%20setup.jpg)
+
+This setup includes:
+- A code editor/IDE with split view functionality
+- One pane for your implementation code
+- Another pane for your test/main file
+- A terminal/output window at the bottom to see your results
+
+This arrangement allows you to:
+1. See your implementation and usage side by side
+2. Quickly make changes and see the results
+3. Debug more effectively by having all components visible at once
+4. Better understand how your data structures and algorithms work in practice
+
+Feel free to adjust this setup according to your preferences, but maintaining the ability to see both your implementation and usage simultaneously is highly recommended for an optimal learning experience.
+
 ## Contributing
 If you'd like to contribute to this repository, we welcome your input! Feel free to fork the repository, make your changes, and submit a pull request. Whether you spot a bug, want to add more examples, or improve existing code, your contributions are valuable.
 
